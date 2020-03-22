@@ -2,32 +2,33 @@
 #include "Combi.h"
 #include <iomanip> 
 
-using namespace std;
-
-void main()
+int main()
 {
-	setlocale(0, "");
+	setlocale(LC_ALL, "rus");
+	char  AA[][2] = { "A", "B", "C", "D" };
+	std::cout << std::endl << " --- Генератор перестановок ---";
+	std::cout << std::endl << "Исходное множество: ";
+	std::cout << "{ ";
+	for (int i = 0; i < sizeof(AA) / 2; i++)
 
-	char  AA[] = { 'Q', 'W', 'E', 'R' };
-	cout << endl << "\t\t\t - ГЕНЕРАТОР ПЕРЕСТАНОВОК - " << endl;
-
-	cout << endl << "\t\tИсходное множество: ";
-	cout << "{ ";
-	for (int i = 0; i < sizeof(AA); i++)
-		cout << AA[i] << ((i < sizeof(AA) - 1) ? ", " : " ");
-	cout << "}";
-
-	cout << endl << endl << "\t\t\tГенерация перестановок:" << endl;
-	combi::permutation p(sizeof(AA));
+		std::cout << AA[i] << ((i < sizeof(AA) / 2 - 1) ? ", " : " ");
+	std::cout << "}";
+	std::cout << std::endl << "Генерация перестановок ";
+	combi::permutation p(sizeof(AA) / 2);
 	__int64  n = p.getfirst();
 	while (n >= 0)
 	{
-		cout << endl << "\t\t\t\t{ ";
+		std::cout << std::endl << std::setw(4) << p.np << ": { ";
+
 		for (int i = 0; i < p.n; i++)
-			cout << AA[p.ntx(i)] << ((i< p.n - 1) ? ", " : " ");
-		cout << "}";
+
+			std::cout << AA[p.ntx(i)] << ((i < p.n - 1) ? ", " : " ");
+
+		std::cout << "}";
+
 		n = p.getnext();
 	};
-	cout << endl << "всего: " << p.count() << endl;
+	std::cout << std::endl << "всего: " << p.count() << std::endl;
 	system("pause");
+	return 0;
 }

@@ -37,7 +37,7 @@ void indx(int n, int *r, const int *s, const short *ntx)
 		r[i] = s[ntx[i - 1]];
 }
 int salesman(
-	int n,         // [in]  количество городов 
+	int n,         // [in]  количество городов
 	const int *d,  // [in]  массив [n*n] расстояний 
 	int *r         // [out] массив [n] маршрут 0 x x x x 
 	)

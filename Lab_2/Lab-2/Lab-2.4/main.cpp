@@ -1,33 +1,36 @@
 #include <iostream>
 #include <iomanip> 
 #include "Combi.h"
-#define N sizeof(AA)
+#define N (sizeof(AA)/2)
 #define M 3
-
-using namespace std;
-
-void main()
+int main()
 {
 	setlocale(LC_ALL, "rus");
-	char  AA[] = { 'Q', 'W', 'E', 'R' };
-	cout << endl << "\t\t\t - ГЕНЕРАТОР РАЗМЕЩЕНИЙ - " << endl;
-	cout << endl << "\t\tИсходное множество: ";
-	cout << "{ ";
+	char  AA[][2] = { "A", "B", "C", "D" };
+	std::cout << std::endl << " --- Генератор размещений ---";
+	std::cout << std::endl << "Исходное множество: ";
+	std::cout << "{ ";
 	for (int i = 0; i < N; i++)
-		cout << AA[i] << ((i< N - 1) ? ", " : " ");
-	cout << "}";
 
-	cout << endl << endl << "\t\tГенерация размещений  из  " << N << " по " << M << endl;
+		std::cout << AA[i] << ((i < N - 1) ? ", " : " ");
+	std::cout << "}";
+	std::cout << std::endl << "Генерация размещений  из  " << N << " по " << M;
 	combi::accomodation s(N, M);
 	int  n = s.getfirst();
 	while (n >= 0)
 	{
-		cout << endl << "\t\t\t\t{ ";
+
+		std::cout << std::endl << std::setw(2) << s.na << ": { ";
+
 		for (int i = 0; i < 3; i++)
-			cout << AA[s.ntx(i)] << ((i< n - 1) ? ", " : " ");
-		cout << "}";
+
+			std::cout << AA[s.ntx(i)] << ((i < n - 1) ? ", " : " ");
+
+		std::cout << "}";
+
 		n = s.getnext();
 	};
-	cout << endl << "всего: " << s.count() << endl;
+	std::cout << std::endl << "всего: " << s.count() << std::endl;
 	system("pause");
+	return 0;
 }

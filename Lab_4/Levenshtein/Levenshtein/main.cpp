@@ -41,8 +41,8 @@ int main()
 	cout << "\n";
 	
 	clock_t t1 = 0, t2 = 0, t3 = 0, t4 = 0;
-	int lx = sizeof(s1) ;
-	int ly = sizeof(s2) ;
+	int lx = sizeof(s1);
+	int ly = sizeof(s2);
 
 
 	int S1_size[]{ 12,15,20,30,60,150,300 };
@@ -52,7 +52,7 @@ int main()
 	std::cout << "\n\n-- расстояние Левенштейна -----";
 	std::cout << "\n\n--длина --- рекурсия -- дин.програм. ---\n";
 
-	for (int i = 0; i < min(lx, ly); i++)
+	for (int i = 0; i < 7; i++)
 	{
 		t1 = clock();
 		levenshtein_r(S1_size[i], s1 , S2_size[i], s2);

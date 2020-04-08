@@ -21,8 +21,8 @@ int main()
 	clock_t t4 = 0;
 
 	char Z[100] = "";
-	char X[] = "BXWAFRE";
-	char Y[] = "XCDUFR";
+	char X[] = "HRWCYUJ";
+	char Y[] = "WLPCAU";
 
 	t1 = clock();
 	int s = lcs(sizeof(X) - 1, X, sizeof(Y) - 1, Y);
